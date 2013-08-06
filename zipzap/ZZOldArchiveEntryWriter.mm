@@ -30,14 +30,14 @@
 	if ((self = [super init]))
 	{
 		// copy the central header bytes
-		_centralFileHeader = [NSMutableData dataWithBytes:centralFileHeader
-												   length:(uint8_t*)centralFileHeader->nextCentralFileHeader() - (uint8_t*)centralFileHeader];
+		_centralFileHeader = [[NSMutableData alloc] initWithBytes:centralFileHeader
+														   length:(uint8_t*)centralFileHeader->nextCentralFileHeader() - (uint8_t*)centralFileHeader];
 		
 		_localFileLength = (uint32_t)((const uint8_t*)localFileHeader->nextLocalFileHeader(centralFileHeader->compressedSize) - (const uint8_t*)localFileHeader);
 		
 		// if we can skip local file i.e. because this old entry has not changed position in the zip file entries
 		// don't copy the local file bytes
-		_localFile = shouldSkipLocalFile ? nil : [NSData dataWithBytes:localFileHeader length:_localFileLength];
+		_localFile = shouldSkipLocalFile ? nil : [[NSData alloc] initWithBytes:localFileHeader length:_localFileLength];
 	}
 	return self;
 }
@@ -56,12 +56,13 @@
 }
 
 - (BOOL)writeLocalFileToChannelOutput:(id<ZZChannelOutput>)channelOutput
+					  withInitialSkip:(uint32_t)initialSkip
 								error:(NSError**)error
 {
 	if (_localFile)
 	{
 		// can't skip: save the offset, then write out the local file bytes
-		[self centralFileHeader]->relativeOffsetOfLocalHeader = [channelOutput offset];
+		[self centralFileHeader]->relativeOffsetOfLocalHeader = [channelOutput offset] + initialSkip;
 		return [channelOutput writeData:_localFile
 								  error:error];
 	}

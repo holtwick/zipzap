@@ -56,15 +56,14 @@
 											  error:nil];
 }
 
-- (NSData*)openInput:(NSError**)error
+- (NSData*)newInput:(NSError**)error
 {
-	return [NSData dataWithContentsOfURL:_URL
-								 options:NSDataReadingMappedAlways
-								   error:error];
+	return [[NSData alloc] initWithContentsOfURL:_URL
+										 options:NSDataReadingMappedAlways
+										   error:error];
 }
 
-- (id<ZZChannelOutput>)openOutputWithOffsetBias:(uint32_t)offsetBias
-										  error:(NSError**)error
+- (id<ZZChannelOutput>)newOutput:(NSError**)error
 {
 	int fileDescriptor =  open(_URL.path.fileSystemRepresentation,
 							   O_WRONLY | O_CREAT,
@@ -78,8 +77,7 @@
 		return nil;
 	}
 	else
-		return [[ZZFileChannelOutput alloc] initWithFileDescriptor:fileDescriptor
-														offsetBias:offsetBias];
+		return [[ZZFileChannelOutput alloc] initWithFileDescriptor:fileDescriptor];
 }
 
 @end

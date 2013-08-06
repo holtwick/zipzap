@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		D810EBCF164B19DA00200834 /* 拉链.txt in Resources */ = {isa = PBXBuildFile; fileRef = D810EBCE164B19DA00200834 /* 拉链.txt */; };
-		D8366ACE16B1F8B400BC012E /* ZZError.h in Headers */ = {isa = PBXBuildFile; fileRef = D8366ACC16B1F8B400BC012E /* ZZError.h */; settings = {ATTRIBUTES = (); }; };
+		D8366ACE16B1F8B400BC012E /* ZZError.h in Headers */ = {isa = PBXBuildFile; fileRef = D8366ACC16B1F8B400BC012E /* ZZError.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D8366ACF16B1F8B400BC012E /* ZZError.m in Sources */ = {isa = PBXBuildFile; fileRef = D8366ACD16B1F8B400BC012E /* ZZError.m */; };
 		D8366AD016B1F8B400BC012E /* ZZError.m in Sources */ = {isa = PBXBuildFile; fileRef = D8366ACD16B1F8B400BC012E /* ZZError.m */; };
 		D8366ADF16B3625D00BC012E /* ZZError.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D8366ACC16B1F8B400BC012E /* ZZError.h */; };
@@ -36,10 +36,10 @@
 		D899CF98162C5EC100112F49 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D899CF97162C5EC100112F49 /* SenTestingKit.framework */; };
 		D899CF9C162C5EC100112F49 /* libzipzap.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D899CF82162C5EC100112F49 /* libzipzap.a */; };
 		D899CFA2162C5EC100112F49 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D899CFA0162C5EC100112F49 /* InfoPlist.strings */; };
-		D899CFEA162C608300112F49 /* ZZArchiveEntry.h in Headers */ = {isa = PBXBuildFile; fileRef = D899CFD8162C608300112F49 /* ZZArchiveEntry.h */; settings = {ATTRIBUTES = (); }; };
+		D899CFEA162C608300112F49 /* ZZArchiveEntry.h in Headers */ = {isa = PBXBuildFile; fileRef = D899CFD8162C608300112F49 /* ZZArchiveEntry.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D899CFEB162C608300112F49 /* ZZArchiveEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = D899CFD9162C608300112F49 /* ZZArchiveEntry.m */; };
 		D899CFEC162C608300112F49 /* ZZArchiveEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = D899CFD9162C608300112F49 /* ZZArchiveEntry.m */; };
-		D899CFED162C608300112F49 /* ZZArchive.h in Headers */ = {isa = PBXBuildFile; fileRef = D899CFDA162C608300112F49 /* ZZArchive.h */; settings = {ATTRIBUTES = (); }; };
+		D899CFED162C608300112F49 /* ZZArchive.h in Headers */ = {isa = PBXBuildFile; fileRef = D899CFDA162C608300112F49 /* ZZArchive.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D899CFEE162C608300112F49 /* ZZArchive.mm in Sources */ = {isa = PBXBuildFile; fileRef = D899CFDB162C608300112F49 /* ZZArchive.mm */; };
 		D899CFEF162C608300112F49 /* ZZArchive.mm in Sources */ = {isa = PBXBuildFile; fileRef = D899CFDB162C608300112F49 /* ZZArchive.mm */; };
 		D899CFF0162C608300112F49 /* ZZInflateInputStream.h in Headers */ = {isa = PBXBuildFile; fileRef = D899CFDC162C608300112F49 /* ZZInflateInputStream.h */; };
@@ -70,7 +70,7 @@
 		D899D01E162CD57700112F49 /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D899D01D162CD57700112F49 /* libc++.dylib */; };
 		D899D021162F6C9700112F49 /* ZZZipTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D899D020162F6C9700112F49 /* ZZZipTests.m */; };
 		D899D0241631888100112F49 /* ZZTasks.m in Sources */ = {isa = PBXBuildFile; fileRef = D899D0231631888000112F49 /* ZZTasks.m */; };
-		D8B0FD621640A6B000727A70 /* zipzap.h in Headers */ = {isa = PBXBuildFile; fileRef = D8B0FD611640A6B000727A70 /* zipzap.h */; settings = {ATTRIBUTES = (); }; };
+		D8B0FD621640A6B000727A70 /* zipzap.h in Headers */ = {isa = PBXBuildFile; fileRef = D8B0FD611640A6B000727A70 /* zipzap.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D8B0FD661640A77F00727A70 /* zipzap.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D8B0FD611640A6B000727A70 /* zipzap.h */; };
 		D8B0FD671640A77F00727A70 /* ZZArchive.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D899CFDA162C608300112F49 /* ZZArchive.h */; };
 		D8B0FD681640A77F00727A70 /* ZZArchiveEntry.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D899CFD8162C608300112F49 /* ZZArchiveEntry.h */; };
@@ -416,7 +416,7 @@
 		D899CF77162C5E8400112F49 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0500;
+				LastUpgradeCheck = 0450;
 			};
 			buildConfigurationList = D899CF7A162C5E8400112F49 /* Build configuration list for PBXProject "zipzap" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -548,15 +548,12 @@
 		D899CF7C162C5E8400112F49 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ONLY_ACTIVE_ARCH = YES;
-				SKIP_INSTALL = YES;
 			};
 			name = Debug;
 		};
 		D899CF7D162C5E8400112F49 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				SKIP_INSTALL = YES;
 			};
 			name = Release;
 		};
@@ -564,13 +561,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -589,7 +587,6 @@
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = zipzap;
 				SDKROOT = macosx;
-				SKIP_INSTALL = YES;
 			};
 			name = Debug;
 		};
@@ -597,14 +594,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "zipzap/zipzap-Prefix.pch";
@@ -615,7 +613,6 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				PRODUCT_NAME = zipzap;
 				SDKROOT = macosx;
-				SKIP_INSTALL = YES;
 			};
 			name = Release;
 		};
@@ -623,14 +620,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = "\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"";
-				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -659,7 +657,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -667,7 +666,7 @@
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				FRAMEWORK_SEARCH_PATHS = "\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"";
-				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "zipzap/zipzap-Prefix.pch";
@@ -688,13 +687,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				DSTROOT = /tmp/zipzap.dst;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -720,13 +720,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = YES;
 				DSTROOT = /tmp/zipzap.dst;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "zipzap/zipzap-Prefix.pch";
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;

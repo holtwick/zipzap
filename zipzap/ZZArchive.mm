@@ -92,7 +92,7 @@
 {
 	// memory-map the contents from the zip file
 	NSError* __autoreleasing readError;
-	NSData* contents = [_channel openInput:&readError];
+	NSData* contents = [_channel newInput:&readError];
 	if (!contents)
 		return ZZRaiseError(error, ZZOpenReadErrorCode, @{NSUnderlyingErrorKey : readError});
 	
@@ -185,7 +185,7 @@
     
     [newEntries enumerateObjectsUsingBlock:^(ZZArchiveEntry *anEntry, NSUInteger index, BOOL* stop)
      {
-         [newEntryWriters addObject:[anEntry writerCanSkipLocalFile:index < skipIndex]];
+         [newEntryWriters addObject:[anEntry newWriterCanSkipLocalFile:index < skipIndex]];
      }];
 	
 	// clear entries + content
@@ -205,8 +205,7 @@
 	@try
 	{
 		// open the channel
-		id<ZZChannelOutput> temporaryChannelOutput = [temporaryChannel openOutputWithOffsetBias:initialSkip
-																						  error:&underlyingError];
+		id<ZZChannelOutput> temporaryChannelOutput = [temporaryChannel newOutput:&underlyingError];
 		if (!temporaryChannelOutput)
 			return ZZRaiseError(error, ZZOpenWriteErrorCode, @{NSUnderlyingErrorKey : underlyingError});
 		
@@ -215,6 +214,7 @@
 			// write out local files
 			for (NSUInteger index = skipIndex; index < newEntriesCount; ++index)
 				if (![[newEntryWriters objectAtIndex:index] writeLocalFileToChannelOutput:temporaryChannelOutput
+																		  withInitialSkip:initialSkip
 																					error:&underlyingError])
 					return ZZRaiseError(error, ZZLocalFileWriteErrorCode, @{NSUnderlyingErrorKey : underlyingError, ZZEntryIndexKey : @(index)});
 			
@@ -226,7 +226,7 @@
 			endOfCentralDirectory.totalNumberOfEntriesInTheCentralDirectoryOnThisDisk
 				= endOfCentralDirectory.totalNumberOfEntriesInTheCentralDirectory
 				= newEntriesCount;
-			endOfCentralDirectory.offsetOfStartOfCentralDirectoryWithRespectToTheStartingDiskNumber = [temporaryChannelOutput offset];
+			endOfCentralDirectory.offsetOfStartOfCentralDirectoryWithRespectToTheStartingDiskNumber = [temporaryChannelOutput offset] + initialSkip;
 			
 			// write out central file headers
 			for (NSUInteger index = 0; index < newEntriesCount; ++index)
@@ -234,7 +234,7 @@
 																							error:&underlyingError])
 					return ZZRaiseError(error, ZZCentralFileHeaderWriteErrorCode, @{NSUnderlyingErrorKey : underlyingError, ZZEntryIndexKey : @(index)});
 			
-			endOfCentralDirectory.sizeOfTheCentralDirectory = [temporaryChannelOutput offset]
+			endOfCentralDirectory.sizeOfTheCentralDirectory = [temporaryChannelOutput offset] + initialSkip
 				- endOfCentralDirectory.offsetOfStartOfCentralDirectoryWithRespectToTheStartingDiskNumber;
 			endOfCentralDirectory.zipFileCommentLength = 0;
 			
@@ -253,14 +253,13 @@
 		if (initialSkip)
 		{
 			// something skipped, append the temporary channel contents at the skipped offset
-			id<ZZChannelOutput> channelOutput = [_channel openOutputWithOffsetBias:0
-																			 error:&underlyingError];
+			id<ZZChannelOutput> channelOutput = [_channel newOutput:&underlyingError];
 			if (!channelOutput)
 				return ZZRaiseError(error, ZZReplaceWriteErrorCode, @{NSUnderlyingErrorKey : underlyingError});
 
 			@try
 			{
-				NSData* channelInput = [temporaryChannel openInput:&underlyingError];
+				NSData* channelInput = [temporaryChannel newInput:&underlyingError];
 				if (!channelInput
 					|| ![channelOutput seekToOffset:initialSkip
 											  error:&underlyingError]
